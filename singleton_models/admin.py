@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 from django.utils.encoding import force_unicode
 from django.http import HttpResponseRedirect
-from django.utils.functional import update_wrapper
+from functools import update_wrapper
 
 
 class SingletonModelAdmin(admin.ModelAdmin):
