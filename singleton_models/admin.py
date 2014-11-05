@@ -18,7 +18,10 @@ class SingletonModelAdmin(admin.ModelAdmin):
         return False
 
     def get_urls(self):
-        from django.conf.urls import patterns, url
+        try:
+            from django.conf.urls.defaults import patterns, url
+        except ImportError:
+            from django.conf.urls import patterns, url
 
         def wrap(view):
             def wrapper(*args, **kwargs):
