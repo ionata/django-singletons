@@ -5,6 +5,8 @@ django-singleton is a fork of Thomas Ashelford's [django-singletons](https://git
 
 I forked his code to include Django 1.4 compatibility, as well as to remove the delete button within the admin (see credit below).  I had to rename the repository so that I could submit this to the Python Package Index.
 
+Now includes Django 1.6 support, while maintaining backwards compatibility.
+
 [Code from Chris Church's fork](https://github.com/ninemoreminutes/django-singletons/commit/9b231666b9027d3bd1159f3db8bce34701193bdd) - I am merely synthesizing all this..
 
 
@@ -31,13 +33,13 @@ To get the custom admin templates working, you need to add "singleton_models" to
 in models.py
 
     from singleton_models.models import SingletonModel
-    
+
     class HomePage(SingletonModel):
         welcome = models.TextField()
-        
+
         def __unicode__(self):
             return u"The Home Page" # something like this will make admin message strings more coherent
-            
+
         class Meta:
             verbose_name = "Home Page" # once again this will make sure your admin UI doesn't have illogical text
             verbose_name_plural = "Home Page"
@@ -47,5 +49,5 @@ in admin.py
 
     from singleton_models.admin import SingletonModelAdmin
     from models import HomePage
-            
+
     admin.site.register(HomePage, SingletonModelAdmin)
