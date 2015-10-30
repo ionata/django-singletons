@@ -21,7 +21,6 @@ def singleton_view(fn_name):
 
 
 class SingletonModelAdmin(admin.ModelAdmin):
-
     change_form_template = "admin/singleton_models/change_form.html"
     object_history_template = "admin/singleton_models/object_history.html"
 
@@ -76,5 +75,4 @@ class SingletonModelAdmin(admin.ModelAdmin):
             return HttpResponseRedirect("../")
 
     change_view = singleton_view('change_view')
-
     history_view = singleton_view('history_view')
